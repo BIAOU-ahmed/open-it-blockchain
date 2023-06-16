@@ -44,25 +44,19 @@ function App() {
 
 	return (
 		<>
-			<h1>Ahmee NFT</h1>
-			<div className='card'>
-				{currentAccount ? (
-					<button onClick={() => handleBuy(2)}>Buy B2O</button>
-				) : (
-					<button onClick={handleLogin}>Connect</button>
-				)}
-			</div>
-			<div>
+			<h1>Ahmed NFT</h1>
+			{currentAccount ? (
+				null
+			) : (
+				<button onClick={handleLogin}>Connect</button>
+			)}
+			<div className="container">
 				{[1, 2, 3, 4, 5].map((item, index) => (
+
 					<div key={index} className="card">
-						<img
-							src="./../public/images/1.png" // Remplacez l'URL par votre source d'image
-							alt={`Image ${index + 1}`}
-							className="image"
-						/>
-						<button className="button" onClick={() => handleBuy(index)}>
-							Button
-						</button>
+						<img src={`./../public/images/${index + 1}.png`} alt={`Image ${index}`} className="image" />
+						{currentAccount ? <button className="button" onClick={() => handleBuy(index)}>Acheter</button> : null}
+
 					</div>
 				))}
 			</div>
